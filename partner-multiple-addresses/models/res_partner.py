@@ -40,16 +40,17 @@ class Partner(models.Model):
     def _build_vcard(self):
         vcard = super(Partner, self)._build_vcard()
 
-        allowed_vcard_adr_types = ('home', 'school', 'work')
-
-        if vcard.adr and self.type in allowed_vcard_adr_types:
+        if vcard.adr and self.type:
             vcard.adr.type_param = self.type
 
         for child in self.child_ids:
-            if child.type not in allowed_vcard_adr_types:
+            if child.type not in self._complete_name_displayed_types:
                 continue
+
             adr = vcard.add('ADR')
             adr.value = vobject.vcard.Address(street=child.street or '', city=child.city or '', code=child.zip or '')
+            if child.street2:
+                adr.value.extended = child.street2
             if child.state_id:
                 adr.value.region = child.state_id.name
             if child.country_id:
