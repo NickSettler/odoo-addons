@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="multiple_addresses_partner_form" model="ir.ui.view">
+            <field name="name">partner.multiple.addresses.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='contact_addresses']/field[@name='child_ids']" position="attributes">
+                    <attribute name="mode">tree,form</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='contact_addresses']/field[@name='child_ids']" position="inside">
+                    <tree string="Addresses">
+                        <field name="type"/>
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="state_id"/>
+                        <field name="country_id"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </tree>
+                </xpath>
+                <xpath expr="//notebook/page[@name='contact_addresses']/field[@name='child_ids']/form/sheet/field[@name='type']" position="attributes">
+                    <attribute name="widget">select</attribute>
+                    <attribute name="options">{}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
