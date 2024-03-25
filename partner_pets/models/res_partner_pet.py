@@ -2,6 +2,7 @@ from odoo import models, fields, api
 
 
 class PartnerPet(models.Model):
+    _description = "Pet"
     _name = "res.partner.pet"
     _inherit = ['avatar.mixin']
     _order = "name"

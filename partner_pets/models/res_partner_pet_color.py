@@ -1,7 +1,8 @@
 from odoo import models, fields
 
 
-class PartnerPetBreed(models.Model):
+class PartnerPetColor(models.Model):
+    _description = "Pet Color"
     _name = "res.partner.pet.color"
     _order = "name"
 
