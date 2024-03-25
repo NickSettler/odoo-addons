@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tree_res_partner_biography_lines" model="ir.ui.view">
+        <field name="name">res.partner.biography.line.tree</field>
+        <field name="model">res.partner.biography.line</field>
+        <field name="arch" type="xml">
+            <tree string="Biography Lines">
+                <field name="partner_id" widget="many2one_tags" options="{'no_create': True}"/>
+                <field name="biography_type" widget="many2one_tags"/>
+                <field name="date"/>
+                <field name="summary"/>
+                <field name="related_partners_ids" widget="many2many_tags" optional="hide"
+                       options="{'no_create': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_res_partner_biography_lines" model="ir.ui.view">
+        <field name="name">res.partner.biography.line.form</field>
+        <field name="model">res.partner.biography.line</field>
+        <field name="arch" type="xml">
+            <form name="Biography Lines">
+                <sheet>
+                    <group>
+                        <field name="partner_id" widget="many2one_tags" placeholder="Partner" required="1"
+                               default_focus="1"/>
+                        <field name="biography_type" placeholder="Biography Type" required="1" context="{'group_by': 'biography_type'}"/>
+                        <field name="date" placeholder="Date" required="1"/>
+                        <field name="summary" placeholder="Summary"/>
+                        <field name="related_partners_ids" widget="many2many_tags" placeholder="Related Partners"/>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes" placeholder="Notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="search_res_partner_biography_lines" model="ir.ui.view">
+        <field name="name">res.partner.biography.line.search</field>
+        <field name="model">res.partner.biography.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="biography_type"/>
+                <field name="date"/>
+                <field name="summary"/>
+                <field name="related_partners_ids"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_biography_type" string="Biography Type"
+                            context="{'group_by': 'biography_type'}"/>
+                    <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+                    <filter name="group_by_partner_id" string="Partner" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="res_partner_biography_lines_action" model="ir.actions.act_window">
+        <field name="name">Biography Lines</field>
+        <field name="res_model">res.partner.biography.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="tree_res_partner_biography_lines"/>
+        <field name="search_view_id" ref="search_res_partner_biography_lines"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Record and track your partners' biographies.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="partner_biography_lines_menu"
+            name="Biography Lines"
+            action="res_partner_biography_lines_action"
+            parent="partner_biography_config"
+            sequence="1"
+    />
+</odoo>

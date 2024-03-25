@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="partner_biography_category_type_2" model="res.partner.biography.category.type">
+            <field name="name">Took the bus</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_3" model="res.partner.biography.category.type">
+            <field name="name">Took the metro</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_4" model="res.partner.biography.category.type">
+            <field name="name">Took the train</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_5" model="res.partner.biography.category.type">
+            <field name="name">Took the plane</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_6" model="res.partner.biography.category.type">
+            <field name="name">Took the boat</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_8" model="res.partner.biography.category.type">
+            <field name="name">Took the taxi</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_7" model="res.partner.biography.category.type">
+            <field name="name">Drove</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_1" model="res.partner.biography.category.type">
+            <field name="name">Rode a bike</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_9" model="res.partner.biography.category.type">
+            <field name="name">Walked</field>
+            <field name="biography_category_id" ref="partner_biography_category_1"/>
+        </record>
+
+        <record id="partner_biography_category_type_10" model="res.partner.biography.category.type">
+            <field name="name">Went to a bar</field>
+            <field name="biography_category_id" ref="partner_biography_category_2"/>
+        </record>
+
+        <record id="partner_biography_category_type_10" model="res.partner.biography.category.type">
+            <field name="name">Went to a restaurant</field>
+            <field name="biography_category_id" ref="partner_biography_category_2"/>
+        </record>
+
+        <record id="partner_biography_category_type_11" model="res.partner.biography.category.type">
+            <field name="name">Went to a concert</field>
+            <field name="biography_category_id" ref="partner_biography_category_2"/>
+        </record>
+
+        <record id="partner_biography_category_type_12" model="res.partner.biography.category.type">
+            <field name="name">Went to a party</field>
+            <field name="biography_category_id" ref="partner_biography_category_2"/>
+        </record>
+
+        <record id="partner_biography_category_type_13" model="res.partner.biography.category.type">
+            <field name="name">Went to a museum</field>
+            <field name="biography_category_id" ref="partner_biography_category_2"/>
+        </record>
+
+        <record id="partner_biography_category_type_13" model="res.partner.biography.category.type">
+            <field name="name">Took a new job</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_14" model="res.partner.biography.category.type">
+            <field name="name">Quit a job</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_15" model="res.partner.biography.category.type">
+            <field name="name">Got fired</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_16" model="res.partner.biography.category.type">
+            <field name="name">Had a promotion</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_17" model="res.partner.biography.category.type">
+            <field name="name">Started an internship</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_18" model="res.partner.biography.category.type">
+            <field name="name">Completed an internship</field>
+            <field name="biography_category_id" ref="partner_biography_category_4"/>
+        </record>
+
+        <record id="partner_biography_category_type_19" model="res.partner.biography.category.type">
+            <field name="name">Enrolled in university</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+
+        <record id="partner_biography_category_type_20" model="res.partner.biography.category.type">
+            <field name="name">Graduated from university</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+
+        <record id="partner_biography_category_type_21" model="res.partner.biography.category.type">
+            <field name="name">Left university</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+
+        <record id="partner_biography_category_type_21" model="res.partner.biography.category.type">
+            <field name="name">Enrolled in a course</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+
+        <record id="partner_biography_category_type_22" model="res.partner.biography.category.type">
+            <field name="name">Completed a course</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+
+        <record id="partner_biography_category_type_23" model="res.partner.biography.category.type">
+            <field name="name">Left a course</field>
+            <field name="biography_category_id" ref="partner_biography_category_5"/>
+        </record>
+    </data>
+</odoo>

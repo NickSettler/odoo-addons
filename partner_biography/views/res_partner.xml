@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="form_res_partner_biography" model="ir.ui.view">
+        <field name="name">form.res.partner.biography</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field type="xml" name="arch">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                        name="action_view_biography_lines"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-book"
+                >
+                    <field name="biography_lines_ids" widget="statinfo" string="Biography Lines"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook/page[@name='internal_notes']" position="before">
+                <page name="biography" string="Biography">
+                    <field name="biography_lines_ids">
+                        <tree>
+                            <field name="biography_type" widget="many2one_tags"/>
+                            <field name="date"/>
+                            <field name="summary"/>
+                            <field name="related_partners_ids" widget="many2many_tags" optional="hide"
+                                   options="{'no_create': True}"/>
+                        </tree>
+                        <form string="Biography">
+                            <sheet>
+                                <group>
+                                    <field name="partner_id" invisible="1" options="{'no_create': True}" required="1"/>
+                                    <field name="biography_type" required="1" placeholder="Biography Type"/>
+                                    <field name="date" required="1" placeholder="Date"/>
+                                    <field name="summary" placeholder="Summary"/>
+                                    <field name="related_partners_ids" widget="many2many_tags"
+                                           placeholder="Related Partners"/>
+                                </group>
+                                <notebook>
+                                    <page string="Notes">
+                                        <field name="notes" placeholder="Notes"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

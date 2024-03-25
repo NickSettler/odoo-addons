@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="partner_biography_category_types_action" model="ir.actions.act_window">
+        <field name="name">Biography Category Types</field>
+        <field name="res_model">res.partner.biography.category.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="partner_biography_category_type_tree" model="ir.ui.view">
+        <field name="name">res.partner.biography.category.type.tree</field>
+        <field name="model">res.partner.biography.category.type</field>
+        <field name="arch" type="xml">
+            <tree string="Biography Types" editable="bottom">
+                <field name="name" required="1" />
+                <field name="biography_category_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="partner_biography_category_type_form" model="ir.ui.view">
+        <field name="name">res.partner.biography.category.type.form</field>
+        <field name="model">res.partner.biography.category.type</field>
+        <field name="arch" type="xml">
+            <form string="Biography Types">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="biography_category_id" />
+                    </group>
+                </sheet>
+                <notebook>
+                    <page string="Description">
+                        <field name="description" />
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+        id="partner_biography_category_types_menu"
+        name="Biography Category Types"
+        action="partner_biography_category_types_action"
+        parent="partner_biography_config"
+        sequence="3" />
+</odoo>
