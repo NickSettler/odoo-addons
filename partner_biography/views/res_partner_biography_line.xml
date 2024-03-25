@@ -24,14 +24,15 @@
                     <group>
                         <field name="partner_id" widget="many2one_tags" placeholder="Partner" required="1"
                                default_focus="1"/>
-                        <field name="biography_type" placeholder="Biography Type" required="1" context="{'group_by': 'biography_type'}"/>
+                        <field name="biography_type" placeholder="Biography Type" required="1"
+                               context="{'group_by': 'biography_type'}"/>
                         <field name="date" placeholder="Date" required="1"/>
                         <field name="summary" placeholder="Summary"/>
                         <field name="related_partners_ids" widget="many2many_tags" placeholder="Related Partners"/>
                     </group>
                     <notebook>
                         <page string="Notes">
-                            <field name="notes" placeholder="Notes"/>
+                            <field name="notes" placeholder="Notes" widget="html"/>
                         </page>
                     </notebook>
                 </sheet>
