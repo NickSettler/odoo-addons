@@ -7,4 +7,5 @@ Available addons
 |----------------------------|---------|-------------------------------------------------|------------------------------------|
 | partner-vcard              | 17.0    | [Nick Settler](https://github.com/NickSettler/) | Extend exported contact vCard      |
 | partner-multiple-addresses | 17.0    | [Nick Settler](https://github.com/NickSettler/) | Add more address types for partner |
+| partner_pets               | 17.0    | [Nick Settler](https://github.com/NickSettler/) | Add pets to partners               |
 
