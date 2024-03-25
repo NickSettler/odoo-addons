@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+            id="menu_res_partner_pet"
+            name="Pets"
+            sequence="4"
+            parent="contacts.menu_contacts"
+    />
+    <menuitem
+            id="menu_res_partner_pet_all"
+            sequence="1"
+            parent="menu_res_partner_pet"
+            action="action_res_partner_pet_all"
+    />
+    <record id="action_res_partner_pet_breed" model="ir.actions.act_window">
+        <field name="name">Partner Pet Breeds</field>
+        <field name="res_model">res.partner.pet.breed</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+            id="menu_res_partner_pet_breed"
+            name="Breeds"
+            sequence="2"
+            parent="menu_res_partner_pet"
+            action="action_res_partner_pet_breed"
+    />
+    <record id="action_res_partner_pet_kind" model="ir.actions.act_window">
+        <field name="name">Partner Pet Kinds</field>
+        <field name="res_model">res.partner.pet.kind</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+            id="menu_res_partner_pet_kind"
+            name="Kinds"
+            sequence="3"
+            parent="menu_res_partner_pet"
+            action="action_res_partner_pet_kind"
+    />
+    <menuitem
+            id="menu_res_partner_pet_color"
+            name="Colors"
+            sequence="4"
+            parent="menu_res_partner_pet"
+            action="partner_pets.action_res_partner_pet_color"
+    />
+</odoo>

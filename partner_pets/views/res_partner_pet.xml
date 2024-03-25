@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="tree_res_partner_pet" model="ir.ui.view">
+        <field name="name">tree.res.partner.pet</field>
+        <field name="model">res.partner.pet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="owner_id"/>
+                <field name="id_number" widget="badge"/>
+                <field name="name"/>
+                <field name="kind_id"/>
+                <field name="breed_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_res_partner_pet" model="ir.ui.view">
+        <field name="name">form.res.partner.pet</field>
+        <field name="model">res.partner.pet</field>
+        <field name="arch" type="xml">
+            <form name="Pet">
+                <sheet>
+                    <field name="avatar_128" invisible="1"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;avatar_128&quot;}"/>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field id="name" options="{'line_breaks': False}" widget="text" class="text-break"
+                                   name="name" default_focus="1" placeholder="e.g. 'Rex'" required="1"/>
+                        </h1>
+                        <div class="o_row">
+                            <field name="id_number" placeholder="e.g. '123456'"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="owner_id"/>
+                            <field name="breed_id"/>
+                            <field name="kind_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="color_ids" widget="many2many_tags"/>
+                            <field name="gender"/>
+                            <field name="birthdate"/>
+                            <field name="age" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="kanban_res_partner_pet" model="ir.ui.view">
+        <field name="name">kanban.res.partner.pet</field>
+        <field name="model">res.partner.pet</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban">
+                <field name="name"/>
+                <field name="kind_id"/>
+                <field name="breed_id"/>
+                <field name="owner_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill oe_kanban_card oe_partner_kanban oe_partner_kanban_{{ record.kind_id.data.color }}">
+                            <t t-set="avatar_image"
+                               t-value="kanban_image('res.partner.pet', 'avatar_128', record.id.raw_value)"/>
+                            <div class="o_kanban_image_fill_left d-none d-md-block">
+                                <img t-attf-src="#{avatar_image}"
+                                     t-att-alt="record.id.value"/>
+                            </div>
+                            <div class="o_kanban_image d-md-none d-block">
+                                <img t-attf-src="#{avatar_image}" t-att-alt="record.id.value"/>
+                            </div>
+                            <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="d-flex flex-column mb8">
+                                        <strong class="o_kanban_record_title oe_partner_heading">
+                                            <field name="name"/>
+                                        </strong>
+                                        <small class="oe_kanban_record_subtitle oe_partner_heading">
+                                            <field name="id_number" widget="badge"/>
+                                        </small>
+                                    </div>
+                                    <ul class="list-unstyled oe_kanban_partner_info">
+                                        <li>
+                                            <field name="owner_id"/>
+                                        </li>
+                                        <li>
+                                            <field name="kind_id"/>
+                                            /
+                                            <field name="breed_id"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left"/>
+                                    <div class="oe_kanban_bottom_right"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="search_res_partner_pet" model="ir.ui.view">
+        <field name="name">search.res.partner.pet</field>
+        <field name="model">res.partner.pet</field>
+        <field name="arch" type="xml">
+            <search string="Search Pets">
+                <filter name="kind_is_dog" string="Dogs" domain="[('kind_id', '=', %(partner_pet_kind_dog)d)]"/>
+                <filter name="kind_is_cat" string="Cats" domain="[('kind_id', '=', %(partner_pet_kind_cat)d)]"/>
+                <filter name="kind_is_bird" string="Birds" domain="[('kind_id', '=', %(partner_pet_kind_bird)d)]"/>
+                <filter name="kind_is_fish" string="Fish" domain="[('kind_id', '=', %(partner_pet_kind_fish)d)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_owner_id" string="Owner" context="{'group_by': 'owner_id'}"/>
+                    <filter name="group_by_kind_id" string="Kind" context="{'group_by': 'kind_id'}"/>
+                    <filter name="group_by_breed_id" string="Breed" context="{'group_by': 'breed_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_res_partner_pet_all" model="ir.actions.act_window">
+        <field name="name">Pets</field>
+        <field name="res_model">res.partner.pet</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="tree_res_partner_pet"/>
+        <field name="search_view_id" ref="search_res_partner_pet"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Record and track your partners' pets.
+            </p>
+        </field>
+    </record>
+</odoo>

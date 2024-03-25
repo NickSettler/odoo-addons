@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="tree_res_partner_pet_color" model="ir.ui.view">
+        <field name="name">tree.res.partner.pet.color</field>
+        <field name="model">res.partner.pet.color</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="color" widget="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_res_partner_pet_color" model="ir.ui.view">
+        <field name="name">form.res.partner.pet.color</field>
+        <field name="model">res.partner.pet.color</field>
+        <field name="arch" type="xml">
+            <form name="Pet Color">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="partner_pets.action_res_partner_pet_color" model="ir.actions.act_window">
+        <field name="name">Pets</field>
+        <field name="res_model">res.partner.pet.color</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="tree_res_partner_pet_color"/>
+    </record>
+</odoo>
