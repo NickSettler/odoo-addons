@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tree_res_partner_social_type" model="ir.ui.view">
+        <field name="name">res.partner.social.type.tree</field>
+        <field name="model">res.partner.social.type</field>
+        <field name="arch" type="xml">
+            <tree string="Social Types">
+                <field name="name" widget="badge"/>
+                <field name="kind_id" widget="badge"/>
+                <field name="template"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_res_partner_social_type" model="ir.ui.view">
+        <field name="name">res.partner.social.type.form</field>
+        <field name="model">res.partner.social.type</field>
+        <field name="arch" type="xml">
+            <form string="Social Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1" placeholder="Name"/>
+                        <field name="kind_id" placeholder="Kind"/>
+                        <field name="template" placeholder="Template"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="search_res_partner_social_type" model="ir.ui.view">
+        <field name="name">res.partner.social.type.search</field>
+        <field name="model">res.partner.social.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_kind_id" string="Kind" context="{'group_by': 'kind_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="res_partner_social_types_action" model="ir.actions.act_window">
+        <field name="name">Social Types</field>
+        <field name="res_model">res.partner.social.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="tree_res_partner_social_type"/>
+        <field name="search_view_id" ref="search_res_partner_social_type"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Record and track your partners' social network types.
+            </p>
+        </field>
+    </record>
+</odoo>

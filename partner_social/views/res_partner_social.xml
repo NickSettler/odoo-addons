@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tree_res_partner_social" model="ir.ui.view">
+        <field name="name">res.partner.social.tree</field>
+        <field name="model">res.partner.social</field>
+        <field name="arch" type="xml">
+            <tree string="Social Networks">
+                <field name="name"/>
+                <field name="partner_id" widget="many2one_tags"/>
+                <field name="social_type_id" widget="many2one_tags"/>
+                <field name="complete_url" widget="url"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_res_partner_social" model="ir.ui.view">
+        <field name="name">res.partner.social.form</field>
+        <field name="model">res.partner.social</field>
+        <field name="arch" type="xml">
+            <form name="Social Network">
+                <sheet>
+                    <group>
+                        <field name="name" required="1" placeholder="Name"/>
+                        <field name="partner_id" required="1" placeholder="Partner"/>
+                        <field name="social_type_id" required="1" widget="many2one_tags" placeholder="Social Type"/>
+                        <field name="value" required="1" placeholder="Value"
+                               help="The value of the social network profile."/>
+                        <field name="complete_url" widget="url" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="search_res_partner_social" model="ir.ui.view">
+        <field name="name">res.partner.social.search</field>
+        <field name="model">res.partner.social</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_social_type_id" string="Social Type"
+                            context="{'group_by': 'social_type_id'}"/>
+                    <filter name="group_by_partner_id" string="Partner" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="res_partner_social_action" model="ir.actions.act_window">
+        <field name="name">Social Networks</field>
+        <field name="res_model">res.partner.social</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="tree_res_partner_social"/>
+        <field name="search_view_id" ref="search_res_partner_social"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Record and track your partners' social network profiles.
+            </p>
+        </field>
+    </record>
+</odoo>
